@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Ionic Barcode Scanner</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item>
+    <ion-input type="text" [(ngModel)]="qrData">
+    </ion-input>
+  </ion-item>
+  <button ion-button full (click)="createCode()"><ion-icon name="barcode"> Create Code</ion-icon> </button>
+  <button ion-button full (click)="scanQrcode()"><ion-icon name="qr-scanner"> Scan code</ion-icon> </button>
+  <ion-card *ngIf="createdCode">
+    <ngx-qrcode [qrc-value]="createdCode"></ngx-qrcode>
+    <ion-card-content>
+      <p>
+        Value: {{createdCode}}
+      </p>
+    </ion-card-content>
+  </ion-card>
+  <ion-card *ngIf="scannedCode">
+    <ion-card-content>
+      Result frorm scan: {{scannedCode}}
+    </ion-card-content>
+  </ion-card>
+</ion-content>
